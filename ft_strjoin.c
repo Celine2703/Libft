@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*final;
 	int		taille;
 
+	if (!s1)
+		return (0);
 	taille = ft_strlen(s1) + ft_strlen(s2);
 	final = malloc(sizeof(char) * taille + 1);
 	if (final == 0)
@@ -32,9 +34,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	while (s2[j])
 	{
-		final[i] = s2[j];
-		i++;
-		j++;
+		final[i++] = s2[j++];
 	}
 	final[i] = '\0';
 	return (final);

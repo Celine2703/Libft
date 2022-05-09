@@ -93,6 +93,8 @@ char	**ft_split(char const *str, char const c)
 	char	**final;
 	int		nbmot;
 
+	if (!str)
+		return (0);
 	nbmot = ft_count(str, c, 0);
 	final = malloc(sizeof(char *) * (nbmot + 1));
 	if (!final)

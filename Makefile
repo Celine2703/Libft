@@ -27,6 +27,10 @@ $(NAME): $(OBJS)
 bonus: $(OBJS) $(OBJSBONUS)
 	ar -rcs libft.a $(OBJS) $(OBJSBONUS)
 
+so:
+	$(CC) -nostartfiles -fPIC $(SRCS) $(SRCSBONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJSBONUS)
+
 %.o: %.c
 	$(CC) -c $< -Iincludes -o $@
 

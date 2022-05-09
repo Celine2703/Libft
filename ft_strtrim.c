@@ -28,29 +28,28 @@ static int	ft_chr(const char *s, int c)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		cpt;
+	int		cpt_debut;
+	int		cpt_fin;
 	char	*str;
+	int		i;
 
-	cpt = 0;
-	i = 0;
+	if (!s1 || !set)
+		return (0);
+	cpt_debut = 0;
+	while (ft_chr(set, s1[cpt_debut]))
+		cpt_debut++;
+	i = cpt_debut;
 	while (s1[i])
-	{
-		if (!(ft_chr(set, s1[i])))
-			cpt++;
 		i++;
-	}
-	str = malloc(sizeof(char) * cpt + 1);
+	cpt_fin = i - 1;
+	while (ft_chr(set, s1[cpt_fin]) && cpt_fin >= cpt_debut)
+		cpt_fin--;
+	str = malloc(sizeof(char) * (cpt_fin - cpt_debut + 2));
 	if (!str)
 		return (0);
 	i = 0;
-	cpt = 0;
-	while (s1[i])
-	{
-		if (!(ft_chr(set, s1[i])))
-			str[cpt++] = s1[i];
-		i++;
-	}
-	str[cpt] = '\0';
+	while (s1[cpt_debut] && cpt_fin - cpt_debut >= 0)
+		str[i++] = s1[cpt_debut++];
+	str[i] = '\0';
 	return (str);
 }
