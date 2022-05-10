@@ -58,6 +58,7 @@ static void	ft_clear(char **str, int j)
 		j--;
 	}
 	free(str);
+	str = 0;
 }
 
 static void	ft_put_inside(char **final, const char *str, char s, int i)

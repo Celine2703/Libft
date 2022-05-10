@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdint.h>
 
 void	*ft_calloc(size_t size, size_t espace)
 {
@@ -20,7 +19,9 @@ void	*ft_calloc(size_t size, size_t espace)
 	size_t		taille;
 
 	taille = espace * size;
-	if (taille >= SIZE_MAX || taille < size || taille < espace)
+	if (size == 0 || espace == 0)
+		return (0);
+	if (taille / size != espace)
 		return (0);
 	cpt = 0;
 	tab = malloc(taille);
