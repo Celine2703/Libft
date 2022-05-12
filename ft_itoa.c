@@ -11,9 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	ft_count(long int nb)
+static int	ft_count(long int nb)
 {
 	int	cpt;
 

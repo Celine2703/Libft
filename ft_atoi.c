@@ -36,6 +36,8 @@ int	ft_atoi(const char *str)
 	int	nb;
 	int	sign;
 
+	if (!str)
+		return (0);
 	nb = 0;
 	i = 0;
 	while (check(str[i]))

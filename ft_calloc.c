@@ -18,9 +18,9 @@ void	*ft_calloc(size_t size, size_t espace)
 	size_t		cpt;
 	size_t		taille;
 
-	taille = espace * size;
-	if (size == 0 || espace == 0)
+	if (!size || !espace)
 		return (0);
+	taille = espace * size;
 	if (taille / size != espace)
 		return (0);
 	cpt = 0;
